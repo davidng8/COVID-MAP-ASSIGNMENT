@@ -1,15 +1,15 @@
 mapboxgl.accessToken =
-'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+'pk.eyJ1IjoiZGF2aWRuZzEyMyIsImEiOiJjbGRrb24xaXcwYXd3M3BzNjJpNjE5MGRqIn0.G2fuEZOIhGOop-yJTHIzOg';
 let map = new mapboxgl.Map({
 container: 'map', // container ID
 style: 'mapbox://styles/mapbox/dark-v10',
-zoom: 5, // starting zoom
-center: [138, 38] // starting center
+zoom: 3.5, // starting zoom
+center: [-100, 40] // starting center
 });
 
-const grades = [4, 5, 6],
+const grades = [200, 2000, 5000],
 colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
-radii = [5, 15, 20];
+radii = [5, 10, 15];
 
 //load data to the map as new layers.
 //map.on('load', function loadingData() {
@@ -17,20 +17,20 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
 
 // when loading a geojson, there are two steps
 // add a source of the data and then add the layer out of the source
-map.addSource('earthquakes', {
+map.addSource('us-covid-2020-counts', {
     type: 'geojson',
-    data: 'assets/earthquakes.geojson'
+    data: 'assets/us-covid-2020-counts.json'
 });
 
 map.addLayer({
-        'id': 'earthquakes-point',
+        'id': 'covid-counts',
         'type': 'circle',
-        'source': 'earthquakes',
-        'minzoom': 5,
+        'source': 'us-covid-2020-counts',
+        'minzoom': 3.5,
         'paint': {
             // increase the radii of the circle as the zoom level and dbh value increases
             'circle-radius': {
-                'property': 'mag',
+                'property': 'cases',
                 'stops': [
                     [{
                         zoom: 5,
@@ -47,7 +47,7 @@ map.addLayer({
                 ]
             },
             'circle-color': {
-                'property': 'mag',
+                'property': 'cases',
                 'stops': [
                     [grades[0], colors[0]],
                     [grades[1], colors[1]],
@@ -64,10 +64,10 @@ map.addLayer({
 
 
 // click on tree to view magnitude in a popup
-map.on('click', 'earthquakes-point', (event) => {
+map.on('click', 'covid-counts', (event) => {
     new mapboxgl.Popup()
         .setLngLat(event.features[0].geometry.coordinates)
-        .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
+        .setHTML(`<strong>COVID 19 Cases:</strong> ${event.features[0].properties.cases}`)
         .addTo(map);
 });
 
@@ -78,7 +78,7 @@ map.on('click', 'earthquakes-point', (event) => {
 const legend = document.getElementById('legend');
 
 //set up legend grades and labels
-var labels = ['<strong>Magnitude</strong>'], vbreak;
+var labels = ['<strong>Cases</strong>'], vbreak;
 //iterate through grades and create a scaled circle and label for each
 for (var i = 0; i < grades.length; i++) {
 vbreak = grades[i];
