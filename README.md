@@ -1,1 +1,1 @@
-# davidng8-covidmap
+# Map of COVID-19 Rates (HTML Map #1) and Map of COVID-19 Rates (HTML Map #2)
