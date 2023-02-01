@@ -160,7 +160,6 @@
                 const legend = document.getElementById('legend');
                 legend.innerHTML = "<b>COVID-19 Rates</b><br>";
 
-
                 layers.forEach((layer, i) => {
                     const color = colors[i];
                     const item = document.createElement('div');
@@ -185,7 +184,6 @@
                     `<p>Hover over a state/county</p>`;
             });
         }
-
         geojsonFetch();
     </script>
 
