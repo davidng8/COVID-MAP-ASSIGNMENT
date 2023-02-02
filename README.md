@@ -2,7 +2,8 @@
 
 ### Introduction
 In this lab, I used data from the U.S. Census, The data used to compile these two web maps are U.S. Covid Rates and Counts from Census Tract per county. 
-[Index.HTML Webpage](https://davidng8.github.io/covidmap/)
+
+*[Index.HTML Webpage](https://davidng8.github.io/covidmap/)
 
 ## Map #1 (Map of COVID Rates in the United States)
 ![MapOne](https://github.com/davidng8/covidmap/blob/main/imgs/CovidRates.jpg)
