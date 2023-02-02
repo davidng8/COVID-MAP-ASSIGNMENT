@@ -6,6 +6,8 @@ In this lab, I used data from the U.S. Census, The data used to compile these tw
 ## Map #1 (Map of COVID Rates in the United States)
 ![MapOne](https://github.com/davidng8/covidmap/blob/main/img/Map%231%20WebMap.jpg)
 * This map shows data on the COVID-19 Rates in the U.S. (finish this later)
+** The data used in this map was from the U.S. Census on COVID Rates, This map is a choropleth map demonstrating the COVID rates across County, As the color gets to a darker shade of red the value is higher to indicate a higher COVID-19 rate. 
+** The map also has interactive features on the top-left side of the map it displays the information of both the state and county, and with value of that location to help the viewer know exactly what location they are looking at the exact value for that name. 
 
 ## Map #2 (Map of COVID Counts in the United States)
 ![MapTwo](https://github.com/davidng8/covidmap/blob/main/img/Map%232%20WebMap.jpg)
